@@ -7,4 +7,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     //
+    function show($id){
+        return 'hello from controller ' . $id;
+    }
 }
