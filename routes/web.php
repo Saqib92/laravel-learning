@@ -17,17 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/about', function () {
-//     return view('hello');
-// });
-
-// Route::get('/contactus', function () {
-//     return view('contact');
-// });
-
-Route::view('/aboutus', 'about');
-Route::view('/contactus', 'contact');
-
-
-Route::post('/users', [UserController::class, 'loadView']);
-Route::view('/login', 'users');
+Route::view('/home', 'home');
+Route::view('/about', 'about');
