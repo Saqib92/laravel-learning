@@ -7,15 +7,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     //
-    function loadView(){
+    function loadView(Request $req){
 
-        $data = [
-            'Saqib Khan',
-            'Haseeb Hanif',
-            'Fahad Aslam',
-            'Github'
-        ];
-        return view('users', ['names' => $data]);
+        
+        return $req-> input();
 
     }
 }

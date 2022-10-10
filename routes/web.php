@@ -29,4 +29,5 @@ Route::view('/aboutus', 'about');
 Route::view('/contactus', 'contact');
 
 
-Route::get('/users', [UserController::class, 'loadView']);
+Route::post('/users', [UserController::class, 'loadView']);
+Route::view('/login', 'users');
