@@ -9,7 +9,13 @@ class UserController extends Controller
     //
     function loadView(){
 
-        return view('users', ['name' => '']);
+        $data = [
+            'Saqib Khan',
+            'Haseeb Hanif',
+            'Fahad Aslam',
+            'Github'
+        ];
+        return view('users', ['name' => 'Saqib Khan']);
 
     }
 }

@@ -8,3 +8,7 @@
 @else
 <h1 class="three">{{$name}}</h1>
 @endif
+
+    @for($i = 0; $i < 10; $i++)
+    <h4>{{$i+1}}</h4>
+    @endfor
