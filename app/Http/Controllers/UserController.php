@@ -15,7 +15,7 @@ class UserController extends Controller
             'Fahad Aslam',
             'Github'
         ];
-        return view('users', ['name' => 'Saqib Khan']);
+        return view('users', ['names' => $data]);
 
     }
 }

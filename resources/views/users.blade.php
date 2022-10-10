@@ -1,14 +1,13 @@
 <x-header componentProps="I am"/>
 <h1> Page view</h1>
 
-@if($name == 'Saqib Khan')
-<h1 class="one">{{$name}} </h1>
-@elseif($name == 10)
-<h1  lass="two">{{$name}}</h1>
-@else
-<h1 class="three">{{$name}}</h1>
-@endif
+
 
     @for($i = 0; $i < 10; $i++)
     <h4>{{$i+1}}</h4>
     @endfor
+
+
+    @foreach($names as $n)
+    <h5>{{$n}}</h5>
+    @endforeach
