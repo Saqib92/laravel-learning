@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\fileuploadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,9 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/home', 'home');
+Route::view('/about', 'about');
 
 Route::get('/login', function(){
 
@@ -42,6 +47,5 @@ Route::get('/profile', function(){
     return redirect('login');
 });
 
-
-Route::view('/home', 'home');
-Route::view('/about', 'about');
+Route::view('/fileupload', 'fileupload');
+Route::post('/uploadFile', [fileuploadController::class, 'index']);
