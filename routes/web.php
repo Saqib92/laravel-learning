@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\fileuploadController;
+use App\Http\Controllers\ListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,5 @@ Route::get('/profile', function(){
 
 Route::view('/fileupload', 'fileupload');
 Route::post('/uploadFile', [fileuploadController::class, 'index']);
+
+Route::get('/list', [ListController::class, 'show']);
