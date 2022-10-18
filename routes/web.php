@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\fileuploadController;
 use App\Http\Controllers\ListController;
-
+use App\Http\Controllers\AddmemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +52,6 @@ Route::view('/fileupload', 'fileupload');
 Route::post('/uploadFile', [fileuploadController::class, 'index']);
 
 Route::get('/list', [ListController::class, 'show']);
+
+Route::view('/addmember', 'addmember');
+Route::post('/addMemberData', [AddmemberController::class, 'addData']);

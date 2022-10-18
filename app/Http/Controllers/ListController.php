@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\member;
+use App\Models\Member;
 
 class ListController extends Controller
 {
