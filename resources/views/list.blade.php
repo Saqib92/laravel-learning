@@ -7,6 +7,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Action</th>
         </tr>
     </thead>
 
@@ -17,6 +18,10 @@
             <td>{{$list->full_name}}</td>
             <td>{{$list->email}}</td>
             <td>{{$list->address}}</td>
+            <td>
+                <a href={{ "delete/" . $list['id'] }}>Delete</a>
+                <a href={{ "edit/" . $list['id'] }}>Edit</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
