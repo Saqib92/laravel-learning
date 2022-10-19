@@ -54,6 +54,8 @@ Route::post('/uploadFile', [fileuploadController::class, 'index']);
 Route::get('/list', [ListController::class, 'show']);
 Route::get('/delete/{id}', [ListController::class, 'delete']);
 Route::get('/edit/{id}', [ListController::class, 'edit']);
+Route::POST('/saveMember', [ListController::class, 'saveMember']);
+
 
 Route::view('/addmember', 'addmember');
 Route::post('/addMemberData', [AddmemberController::class, 'addData']);
