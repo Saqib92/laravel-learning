@@ -10,12 +10,8 @@ class QueryController extends Controller
     //
     function operations(){
         return DB::table('members')
-        ->where('id', 7)
-        ->update([
-            'full_name' => 'James Clarke',
-            'email' => 'james@gmail.com',
-            'address' => 'Ideve'
-        ]);
+        ->where('id', 8)
+        ->delete();
         //return view('querylist', ['data'=>$data]);
     }
 }
