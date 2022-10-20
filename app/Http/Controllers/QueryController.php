@@ -10,7 +10,8 @@ class QueryController extends Controller
     //
     function operations(){
         $data = DB::table('members')
-        ->where('address', '=' , 'pakistan')
+        //->find(3); // to find
+        ->where('id', '=' , '1')
         ->get();
         return view('querylist', ['data'=>$data]);
     }
