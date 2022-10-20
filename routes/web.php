@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\fileuploadController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\AddmemberController;
+use App\Http\Controllers\QueryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +61,6 @@ Route::POST('/saveMember', [ListController::class, 'saveMember']);
 
 Route::view('/addmember', 'addmember');
 Route::post('/addMemberData', [AddmemberController::class, 'addData']);
+
+
+Route::get('query', [QueryController::class, 'operations']);
