@@ -10,9 +10,11 @@ class QueryController extends Controller
     //
     function operations(){
         $data = DB::table('members')
-        //->find(3); // to find
-        ->where('id', '=' , '1')
-        ->get();
+        ->insert([
+            'full_name' => 'Najam us Saqib',
+            'email' => 'najam@gmail.com',
+            'address'=> 'Mars'
+        ]);
         return view('querylist', ['data'=>$data]);
     }
 }
