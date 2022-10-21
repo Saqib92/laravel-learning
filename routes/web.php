@@ -7,6 +7,7 @@ use App\Http\Controllers\fileuploadController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\AddmemberController;
 use App\Http\Controllers\QueryController;
+use App\Http\Controllers\AggregateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +65,5 @@ Route::post('/addMemberData', [AddmemberController::class, 'addData']);
 
 
 Route::get('query', [QueryController::class, 'operations']);
+
+Route::get('aggregate', [AggregateController::class, 'operations']);
