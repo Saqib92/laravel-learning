@@ -15,13 +15,26 @@ class DeviceController extends Controller
     function saveDevice(Request $req){
 
         $data = new Device;
-
         $data->name = $req->name;
         $data->make = $req->make;
         $res = $data->save();
-
         if($res){
             return ['status'=> true, 'message'=>'device saved', 'type'=> $res];
+        }
+    }
+
+    function deleteDevice($id){
+
+        $data = Device::find($id);
+
+        if(empty($data)){
+            return ['status'=> false, 'message'=>'device not found', 'type'=> $data];
+        }
+        $res = $data -> delete();
+        if($res){
+            return ['status'=> true, 'message'=>'device deleted', 'type'=> $res];
+        }else{
+            return ['status'=> false, 'message'=>'device not delete', 'type'=> $res];
         }
     }
 }
