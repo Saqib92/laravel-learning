@@ -40,8 +40,6 @@ class DeviceController extends Controller
 
     function searchDevice($name){
         $data = Device::where('name', 'like', '%'.$name."%")->get();
-        
-
         if(!$data->isEmpty()){
             return ['status'=>true, 'data' => $data];
         }{
