@@ -37,4 +37,15 @@ class DeviceController extends Controller
             return ['status'=> false, 'message'=>'device not delete', 'type'=> $res];
         }
     }
+
+    function searchDevice($name){
+        $data = Device::where('name', 'like', '%'.$name."%")->get();
+        
+
+        if(!$data->isEmpty()){
+            return ['status'=>true, 'data' => $data];
+        }{
+            return ['status'=>false, 'data' => $data, 'message'=> 'data not found'];
+        }
+    }
 }
