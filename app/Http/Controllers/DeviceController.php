@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use Validator;
 
 class DeviceController extends Controller
 {
@@ -45,5 +46,30 @@ class DeviceController extends Controller
         }{
             return ['status'=>false, 'data' => $data, 'message'=> 'data not found'];
         }
+    }
+
+    function validateTest(Request $req){
+
+        $rules = array(
+            'name' => 'required',
+            'make' => 'required'
+        );
+
+        $valid = Validator::make($req->all(), $rules);
+
+        if($valid->fails()){
+            return $valid->errors();
+        }else{
+            $data = new Device;
+            $data->name = $req->name;
+            $data->make = $req->make;
+            $res = $data->save();
+            if($res){
+                return ['status'=> true, 'message'=>'device saved', 'type'=> $res];
+            }
+        }
+
+
+
     }
 }

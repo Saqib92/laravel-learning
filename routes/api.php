@@ -26,3 +26,5 @@ Route::get('getList/{id?}', [DeviceController::class, 'getList']);
 Route::post('saveDevice', [DeviceController::class, 'saveDevice']);
 Route::delete('deleteDevice/{id}', [DeviceController::class, 'deleteDevice']);
 Route::get('seaarchDevice/{name}', [DeviceController::class, 'searchDevice']);
+
+Route::post('validate', [DeviceController::class, 'validateTest']);
