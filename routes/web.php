@@ -21,10 +21,9 @@ use App\Http\Controllers\AggregateController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::view('/home', 'home');
 Route::view('/about', 'about');
 
 Route::get('/login', function(){
