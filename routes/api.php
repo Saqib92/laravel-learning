@@ -30,7 +30,8 @@ Route::get('getData', [testApi::class, 'getData']);
 // Route::delete('deleteDevice/{id}', [DeviceController::class, 'deleteDevice']);
 // Route::get('seaarchDevice/{name}', [DeviceController::class, 'searchDevice']);
 
-Route::controller(DeviceController::class)->group(function(){ // laravel 9 
+// laravel 9 Controller group for all Requests. 
+Route::controller(DeviceController::class)->group(function(){ 
     Route::get('getList/{id?}', 'getList');
     Route::post('saveDevice', 'saveDevice');
     Route::delete('deleteDevice/{id}', 'deleteDevice');
