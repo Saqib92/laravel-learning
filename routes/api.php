@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testApi;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\FileUploadApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +30,5 @@ Route::delete('deleteDevice/{id}', [DeviceController::class, 'deleteDevice']);
 Route::get('seaarchDevice/{name}', [DeviceController::class, 'searchDevice']);
 
 Route::post('validate', [DeviceController::class, 'validateTest']);
+
+Route::post('fileUplaodApi', [FileUploadApiController::class, 'UplaodFile']);
