@@ -24,11 +24,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('getData', [testApi::class, 'getData']);
 
-Route::get('getList/{id?}', [DeviceController::class, 'getList']);
-Route::post('saveDevice', [DeviceController::class, 'saveDevice']);
-Route::delete('deleteDevice/{id}', [DeviceController::class, 'deleteDevice']);
-Route::get('seaarchDevice/{name}', [DeviceController::class, 'searchDevice']);
+
+// Route::get('getList/{id?}', [DeviceController::class, 'getList']);
+// Route::post('saveDevice', [DeviceController::class, 'saveDevice']);
+// Route::delete('deleteDevice/{id}', [DeviceController::class, 'deleteDevice']);
+// Route::get('seaarchDevice/{name}', [DeviceController::class, 'searchDevice']);
+
+Route::controller(DeviceController::class)->group(function(){ // laravel 9 
+    Route::get('getList/{id?}', 'getList');
+    Route::post('saveDevice', 'saveDevice');
+    Route::delete('deleteDevice/{id}', 'deleteDevice');
+    Route::get('seaarchDevice/{name}', 'searchDevice');
+});
+
 
 Route::post('validate', [DeviceController::class, 'validateTest']);
-
 Route::post('fileUplaodApi', [FileUploadApiController::class, 'UplaodFile']);
