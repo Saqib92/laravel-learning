@@ -47,18 +47,41 @@
         </div>
     </div>
     <div class="row">
-        
+
         @foreach ($products as $pro)
-        <div class="col-md-3">
-            <x-product>
-                <x-slot:title>{{$pro['title']}}</x-slot>
-                <x-slot:price>{{$pro['price']}}</x-slot>
-                <x-slot:image>{{$pro['image']}}</x-slot>
-            </x-product>
-        </div>
-            
+            <div class="col-md-3">
+                <x-product>
+                    <x-slot:title>{{ $pro['title'] }}</x-slot>
+                        <x-slot:price>{{ $pro['price'] }}</x-slot>
+                            <x-slot:image>{{ $pro['image'] }}</x-slot>
+                </x-product>
+            </div>
         @endforeach
-       
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>
+                New Products:
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+
+        @foreach ($products as $pro)
+            <div class="col-md-3">
+                <x-product>
+                    <x-slot:title>{{ $pro['title'] }}</x-slot>
+                        <x-slot:price>{{ $pro['price'] }}</x-slot>
+                            <x-slot:image>{{ $pro['image'] }}</x-slot>
+                </x-product>
+            </div>
+        @endforeach
+
     </div>
 </div>
 
