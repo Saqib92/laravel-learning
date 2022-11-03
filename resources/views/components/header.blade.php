@@ -18,6 +18,12 @@
                     <a class="nav-link {{ Request::path() == 'about' ? 'active' : '' }}" href="/about">About</a>
                 </li>
             </ul>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn btn-warning">Sign-up</button>
+            </div>
         </div>
+
     </div>
 </nav>

@@ -13,7 +13,8 @@
     @yield('css')
 </head>
 <body>
-    @include('navbar.navbar')
+    <x-header>
+    </x-header>
 
     @yield('content')
     
