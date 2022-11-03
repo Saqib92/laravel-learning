@@ -21,7 +21,27 @@ use App\Http\Controllers\AggregateController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $data[0]['title'] = '"Welcome 2D Jungle" Leaf Wall Art';
+    $data[0]['image'] = 'assets/imgs/home-products/product1.webp';
+    $data[0]['price'] = '$100';
+
+    $data[1]['title'] = 'Products 2';
+    $data[1]['image'] = 'assets/imgs/home-slider/slider1.jpg';
+    $data[1]['price'] = '$200';
+
+    $data[2]['title'] = 'Products 3';
+    $data[2]['image'] = 'assets/imgs/home-slider/slider2.jpg';
+    $data[2]['price'] = '$300';
+
+    $data[3]['title'] = 'Products 4';
+    $data[3]['image'] = 'assets/imgs/home-slider/slider3.jpg';
+    $data[3]['price'] = '$300';
+
+    $data[4]['title'] = 'Products 4';
+    $data[4]['image'] = 'assets/imgs/home-slider/slider3.jpg';
+    $data[4]['price'] = '$300';
+
+    return view('home', ['products' =>$data]);
 });
 
 Route::view('/about', 'about');
