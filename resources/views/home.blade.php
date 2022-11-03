@@ -65,7 +65,7 @@
     <div class="row">
         <div class="col-md-4">
             <h2>
-                New Products:
+                New Arrivals:
             </h2>
         </div>
     </div>
