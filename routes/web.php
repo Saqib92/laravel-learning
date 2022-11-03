@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SignupController;
 use App\Http\Controllers\fileuploadController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\AddmemberController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\AggregateController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,14 +48,19 @@ Route::get('/', function () {
 
 Route::view('/about', 'about');
 
-Route::get('/login', function(){
+Route::controller(SignupController::class)->group(function(){ 
+    Route::get('signup', 'index');
+    Route::post('signupPost', 'registerUser');
+});
 
+Route::get('/login', function(){
     if(session()->has('email')){
         return redirect('profile');
     }
     return view('login');
+})->name('login');
 
-});
+
 Route::post('loginPost', [LoginController::class, 'loginPost']);
 
 Route::get('/logout', function(){
