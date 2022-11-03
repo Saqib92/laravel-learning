@@ -24,6 +24,5 @@
                 <button type="button" class="btn btn-warning">Sign-up</button>
             </div>
         </div>
-
     </div>
 </nav>
