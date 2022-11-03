@@ -41,7 +41,7 @@ class SignupController extends Controller
         if($res){
             return redirect('signup')->withSuccess("Retailer successfully added");
         }else{
-            return redirect('signup')->withErrors("Unsupported media format");
+            return redirect('signup')->withErrors("Somethign Went Wrong!");
         }
     }
 }

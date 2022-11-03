@@ -53,15 +53,18 @@ Route::controller(SignupController::class)->group(function(){
     Route::post('signupPost', 'registerUser');
 });
 
-Route::get('/login', function(){
-    if(session()->has('email')){
-        return redirect('profile');
-    }
-    return view('login');
-})->name('login');
+Route::controller(LoginController::class)->group(function(){ 
+    Route::get('login', 'index');
+    Route::post('loginPost', 'loginUser');
+});
 
-
-Route::post('loginPost', [LoginController::class, 'loginPost']);
+// Route::get('/login', function(){
+//     if(session()->has('email')){
+//         return redirect('profile');
+//     }
+//     return view('login');
+// })->name('login');
+// Route::post('loginPost', [LoginController::class, 'loginPost']);
 
 Route::get('/logout', function(){
     if(session()->has('email')){

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{ asset('assets/imgs/2022-10-17-38.png') }}" alt="Logo" width="30" height="24"
                 class="d-inline-block align-text-top">
             Web Name
@@ -19,10 +19,17 @@
                 </li>
             </ul>
 
-            <div class="text-end">
-                <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
-                <a type="button" class="btn btn-warning" href="/signup">Sign-up</a>
-            </div>
+            @if(session()->has('email'))
+
+            <div class="text-end text-light">{{session()->get('email')}}</div>
+            <a type="button" class="btn btn-outline-light me-2" href="/logout">Logout</a>
+
+            @else
+                <div class="text-end">
+                    <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
+                    <a type="button" class="btn btn-warning" href="/signup">Sign-up</a>
+                </div>
+            @endif
         </div>
     </div>
 </nav>
