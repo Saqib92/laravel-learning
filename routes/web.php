@@ -9,7 +9,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\AddmemberController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\AggregateController;
-
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +93,15 @@ Route::view('/addmember', 'addmember');
 Route::post('/addMemberData', [AddmemberController::class, 'addData']);
 
 
-Route::get('query', [QueryController::class, 'operations']);
+//Route::get('query', [QueryController::class, 'operations']);
+//Route::get('aggregate', [AggregateController::class, 'operations']);
 
-Route::get('aggregate', [AggregateController::class, 'operations']);
+
+//Admin Routes and Controller
+
+Route::view('/adminlogin', 'admin.adminlogin');
+
+Route::controller(AdminUserController::class)->group(function(){ 
+    Route::get('adminlogin', 'index');
+    Route::post('login', 'adminLogin');
+});
