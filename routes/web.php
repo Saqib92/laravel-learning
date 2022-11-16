@@ -10,6 +10,7 @@ use App\Http\Controllers\AddmemberController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\AggregateController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,28 +23,22 @@ use App\Http\Controllers\AdminUserController;
 |
 */
 
-Route::get('/', function () {
-    $data[0]['title'] = '"Welcome 2D Jungle" Leaf Wall Art';
-    $data[0]['image'] = 'assets/imgs/home-products/product1.webp';
-    $data[0]['price'] = '$100';
+// Route::get('/', function () {
+    
 
-    $data[1]['title'] = 'Products 2';
-    $data[1]['image'] = 'assets/imgs/home-slider/slider1.jpg';
-    $data[1]['price'] = '$200';
+//     return view('home', ['products' =>$data]);
+// });
 
-    $data[2]['title'] = 'Products 3';
-    $data[2]['image'] = 'assets/imgs/home-slider/slider2.jpg';
-    $data[2]['price'] = '$300';
 
-    $data[3]['title'] = 'Products 4';
-    $data[3]['image'] = 'assets/imgs/home-slider/slider3.jpg';
-    $data[3]['price'] = '$300';
+Route::controller(ProductsController::class)->group(function(){ 
+    Route::get('/', 'index');
+    Route::get('product/{id}', 'getSingleProduct');
 
-    $data[4]['title'] = 'Products 4';
-    $data[4]['image'] = 'assets/imgs/home-slider/slider3.jpg';
-    $data[4]['price'] = '$300';
 
-    return view('home', ['products' =>$data]);
+    // for Admin Use
+    Route::view('/addproduct', 'admin.addproduct');
+    Route::post('addProduct', 'addProduct');
+
 });
 
 Route::view('/about', 'about');
@@ -67,9 +62,10 @@ Route::controller(LoginController::class)->group(function(){
 // Route::post('loginPost', [LoginController::class, 'loginPost']);
 
 Route::get('/logout', function(){
-    if(session()->has('email')){
+    if(session()->has('email') || session()->has('is_admin')){
         session()->pull('email', null);
-    }
+        session()->put('is_admin', false);
+    }   
     return redirect('login');
 });
 
@@ -100,6 +96,11 @@ Route::post('/addMemberData', [AddmemberController::class, 'addData']);
 //Admin Routes and Controller
 
 Route::view('/adminlogin', 'admin.adminlogin');
+
+Route::controller(AdminUserController::class)->group(function(){ 
+    Route::get('adminlogin', 'index');
+    Route::post('login', 'adminLogin');
+});
 
 Route::controller(AdminUserController::class)->group(function(){ 
     Route::get('adminlogin', 'index');

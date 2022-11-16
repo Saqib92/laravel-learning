@@ -48,12 +48,13 @@
     </div>
     <div class="row">
 
-        @foreach ($products as $pro)
+        @foreach ($featured as $pro)
             <div class="col-md-3">
                 <x-product>
-                    <x-slot:title>{{ $pro['title'] }}</x-slot>
-                        <x-slot:price>{{ $pro['price'] }}</x-slot>
-                            <x-slot:image>{{ $pro['image'] }}</x-slot>
+                    <x-slot:id>{{ $pro['id'] }}</x-slot>
+                    <x-slot:title>{{ $pro['product_name'] }}</x-slot>
+                    <x-slot:price>{{ $pro['product_price'] }}</x-slot>
+                    <x-slot:image>{{ $pro['product_image'] }}</x-slot>
                 </x-product>
             </div>
         @endforeach
@@ -71,12 +72,13 @@
     </div>
     <div class="row">
 
-        @foreach ($products as $pro)
+        @foreach ($new_arrival as $pro)
             <div class="col-md-3">
                 <x-product>
-                    <x-slot:title>{{ $pro['title'] }}</x-slot>
-                        <x-slot:price>{{ $pro['price'] }}</x-slot>
-                            <x-slot:image>{{ $pro['image'] }}</x-slot>
+                    <x-slot:id>{{ $pro['id'] }}</x-slot>
+                    <x-slot:title>{{ $pro['product_name'] }}</x-slot>
+                    <x-slot:price>{{ $pro['product_price'] }}</x-slot>
+                    <x-slot:image>{{ $pro['product_image'] }}</x-slot>
                 </x-product>
             </div>
         @endforeach

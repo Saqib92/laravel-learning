@@ -31,6 +31,7 @@ class LoginController extends Controller
 
         if($passCheck){
             $req->session()->put('email', $req->email);
+            $req->session()->put('is_admin', false);
             return redirect('/')->withSuccess("Login successfull!");
         }else{
             return redirect('login')->withErrors("Email or Password is Wrong!!");

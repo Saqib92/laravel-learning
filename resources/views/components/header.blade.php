@@ -19,17 +19,21 @@
                 </li>
             </ul>
 
+            @if(session()->get('is_admin'))
+                <a type="button" class="btn btn-outline-light me-2" href="/addproduct">Add Product</a>
+            @endif
             @if(session()->has('email'))
 
             <div class="text-end text-light">{{session()->get('email')}}</div>
             <a type="button" class="btn btn-outline-light me-2" href="/logout">Logout</a>
-
             @else
                 <div class="text-end">
                     <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
                     <a type="button" class="btn btn-warning" href="/signup">Sign-up</a>
                 </div>
             @endif
+
+           
         </div>
     </div>
 </nav>
