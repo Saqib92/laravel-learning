@@ -11,6 +11,7 @@ use App\Http\Controllers\QueryController;
 use App\Http\Controllers\AggregateController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,4 +106,8 @@ Route::controller(AdminUserController::class)->group(function(){
 Route::controller(AdminUserController::class)->group(function(){ 
     Route::get('adminlogin', 'index');
     Route::post('login', 'adminLogin');
+});
+
+Route::controller(CartController::class)->group(function(){ 
+    Route::post('addToCart', 'addToCart');
 });
