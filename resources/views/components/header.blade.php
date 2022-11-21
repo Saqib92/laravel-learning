@@ -25,6 +25,7 @@
             @if(session()->has('email'))
 
             <div class="text-end text-light">{{session()->get('email')}}</div>
+            <a type="button" class="btn btn-outline-light me-2" href="/cart">My Cart</a>
             <a type="button" class="btn btn-outline-light me-2" href="/logout">Logout</a>
             @else
                 <div class="text-end">

@@ -109,5 +109,6 @@ Route::controller(AdminUserController::class)->group(function(){
 });
 
 Route::controller(CartController::class)->group(function(){ 
+    Route::get('/cart', 'getCartItems');
     Route::post('addToCart', 'addToCart');
 });

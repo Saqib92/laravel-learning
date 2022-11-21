@@ -24,7 +24,7 @@
                 </p>
                 <div class="d-flex">
                     <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
-                        style="max-width: 3rem" />
+                        style="max-width: 3rem" name="qty"/>
                     <button class="btn btn-outline-dark flex-shrink-0" type="button"
                         onclick="addToCart({{ $product['id'] }})">
                         <i class="bi-cart-fill me-1"></i>
@@ -43,13 +43,21 @@
 @section('script')
 <script>
     function addToCart(id) {
-        console.log(id)
+        let qty = document.getElementById('inputQuantity').value;
+        
+        if(qty == '0' || qty == ''){
+            alert('Please Enter Valid Quantity!');
+            return
+        }
+
+
         let url = '{{ env('APP_URL') . 'addToCart' }}';
 
         $.ajax({
             type: "POST",
             url: url,
             data: {
+                qty: qty,
                 product_id: id,
                 _token: '{{ csrf_token() }}'
             },

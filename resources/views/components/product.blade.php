@@ -15,7 +15,11 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <small class="text-muted">Rs. {{$price}}</small>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+                                <button class="btn btn-outline-dark flex-shrink-0" type="button"
+                                    onclick="addToCart({{ $id }})">
+                                    <i class="bi-cart-fill me-1"></i>
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -25,3 +29,34 @@
         </div>
     </div>
 </div>
+
+@section('script')
+<script>
+    function addToCart(id) {
+        console.log(id)
+        let url = '{{ env('APP_URL') . 'addToCart' }}';
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                qty: '1',
+                product_id: id,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                console.log(data);
+
+                if (data.status == true) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function(data, textStatus, errorThrown) {
+                console.log(data);
+            },
+        });
+    }
+</script>
+@stop

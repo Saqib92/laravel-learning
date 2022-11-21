@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/home/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components/products.css') }}">
 @stop
+
 <div class="container">
     <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="false">
         <div class="carousel-inner">
