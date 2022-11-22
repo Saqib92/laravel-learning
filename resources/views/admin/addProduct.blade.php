@@ -55,6 +55,15 @@
                 </div>
 
                 <div class="form-floating mb-3">
+                    <input type="number" class="form-control" name="product_stock" id="floatingInput"
+                        placeholder="Product Stock">
+                    <label for="floatingInput">Product Stock</label>
+                    @error('product_stock')
+                        <strong class="text-danger">{{ $message }}*</strong>
+                    @enderror
+                </div>
+
+                <div class="form-floating mb-3">
                     <input type="text" class="form-control" name="product_category" id="floatingInput"
                         placeholder="Product Category">
                     <label for="floatingInput">Product Category</label>

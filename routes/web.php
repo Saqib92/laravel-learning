@@ -12,6 +12,7 @@ use App\Http\Controllers\AggregateController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,21 +95,19 @@ Route::post('/addMemberData', [AddmemberController::class, 'addData']);
 //Route::get('aggregate', [AggregateController::class, 'operations']);
 
 
-//Admin Routes and Controller
-
-Route::view('/adminlogin', 'admin.adminlogin');
-
-Route::controller(AdminUserController::class)->group(function(){ 
-    Route::get('adminlogin', 'index');
-    Route::post('login', 'adminLogin');
-});
-
-Route::controller(AdminUserController::class)->group(function(){ 
-    Route::get('adminlogin', 'index');
-    Route::post('login', 'adminLogin');
-});
-
 Route::controller(CartController::class)->group(function(){ 
     Route::get('/cart', 'getCartItems');
     Route::post('addToCart', 'addToCart');
+});
+
+Route::controller(OrdersController::class)->group(function(){ 
+    Route::post('/checkOut', 'checkOut');
+});
+
+//Admin Routes and Controller
+
+Route::controller(AdminUserController::class)->group(function(){ 
+    Route::view('/adminlogin', 'admin.adminlogin');
+    Route::get('adminlogin', 'index');
+    Route::post('login', 'adminLogin');
 });

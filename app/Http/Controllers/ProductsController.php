@@ -28,6 +28,7 @@ class ProductsController extends Controller
             'product_price' => 'required',
             'product_category' => 'required',
             'product_description' => 'required',
+            'product_stock' => 'required',
             'product_image' => 'required'
         ]);
 
@@ -37,6 +38,7 @@ class ProductsController extends Controller
         $pro->product_sku = $req->product_sku;        
         $pro->product_price = $req->product_price;
         $pro->product_category_id = $req->product_category;
+        $pro->product_stock = $req->product_stock;
         $pro->product_description = $req->product_description;
         $pro->product_type = '';
 

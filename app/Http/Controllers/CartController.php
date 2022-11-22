@@ -42,6 +42,6 @@ class CartController extends Controller
     function getCartItems(){
         $userId = User::select('id')->where('email', session()->get('email'))->first()->id;
         $cartItems = Cart::getcartItemWithProduct($userId);
-        return  view('cart', ['cartItems'=> $cartItems]);        
+        return  view('cart', ['cartItems'=> $cartItems, 'userId'=> $userId]);        
     }
 }

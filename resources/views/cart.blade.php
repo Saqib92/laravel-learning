@@ -104,7 +104,7 @@
                                         </div>
 
                                         <button type="button" class="btn btn-dark btn-block btn-lg"
-                                            data-mdb-ripple-color="dark">Checkout</button>
+                                            data-mdb-ripple-color="dark" onclick="checkOutNow()">Checkout</button>
 
                                     </div>
                                 </div>
@@ -117,3 +117,34 @@
     </section>
 
 @endsection
+
+@section('script')
+<script>
+    function checkOutNow() {
+
+        let url = '{{ env('APP_URL') . 'checkOut' }}';
+        let userId = '{{$userId}}'
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                user_id: userId,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                console.log(data);
+
+                if (data.status == true) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function(data, textStatus, errorThrown) {
+                console.log(data);
+            },
+        });
+    }
+</script>
+@stop
