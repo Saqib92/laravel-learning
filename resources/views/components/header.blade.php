@@ -21,6 +21,8 @@
 
             @if(session()->get('is_admin'))
                 <a type="button" class="btn btn-outline-light me-2" href="/addproduct">Add Product</a>
+                <a type="button" class="btn btn-outline-light me-2" href="/adminorders">Orders</a>
+                
             @endif
 
             @if (!session()->get('is_admin') && session()->has('email'))

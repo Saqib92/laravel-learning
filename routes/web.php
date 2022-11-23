@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrdersController;
-
+use App\Http\Controllers\adminorderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,7 +101,7 @@ Route::controller(CartController::class)->group(function(){
 });
 
 Route::controller(OrdersController::class)->group(function(){ 
-    Route::post('/checkOut', 'checkOut');
+    Route::post('/checkOut', 'checkOut');    
 });
 
 //Admin Routes and Controller
@@ -110,4 +110,8 @@ Route::controller(AdminUserController::class)->group(function(){
     Route::view('/adminlogin', 'admin.adminlogin');
     Route::get('adminlogin', 'index');
     Route::post('login', 'adminLogin');
+});
+
+Route::controller(adminorderController::class)->group(function(){
+    Route::get('/adminorders', 'index');
 });
