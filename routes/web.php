@@ -38,7 +38,7 @@ Route::controller(ProductsController::class)->group(function(){
 
 
     // for Admin Use
-    Route::view('/addproduct', 'admin.addproduct');
+    Route::get('/addproduct', 'getAddProduct');
     Route::post('addProduct', 'addProduct');
 
 });

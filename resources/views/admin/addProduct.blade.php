@@ -64,8 +64,12 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="product_category" id="floatingInput"
-                        placeholder="Product Category">
+                    <select class="form-select mb-3" aria-label=".form-select-lg example" name="product_category">
+                        @foreach ($categories as $cat)
+                            <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                        @endforeach                        
+                    </select>
+
                     <label for="floatingInput">Product Category</label>
                     @error('product_category')
                         <strong class="text-danger">{{ $message }}*</strong>

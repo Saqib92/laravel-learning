@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\product_category;
 
 use Validator;
 
@@ -19,6 +20,11 @@ class ProductsController extends Controller
     function getSingleProduct($id){
         $data = Product::find($id);
         return view('singleProduct', ['product'=> $data]);
+    }
+
+    function getAddProduct(){
+        $cat = product_category::all();
+        return view('admin.addproduct', ['categories'=>$cat]);        
     }
 
     function addProduct(Request $req){
